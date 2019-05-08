@@ -1,0 +1,32 @@
+<nav class="header navbar-expand-lg navbar navbar-dark bg-primary" th:fragment="header">
+    <div class="container-fluid">
+        <h1 class="navbar-brand" href="#">MyPlaces</h1>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li th:classappend="${module == 'home' ? 'active' : ''}">
+                    <a href="#" th:href="@{/}">Home</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav navbar-right">
+            <!--li th:if="${#authorization.expression('!isAuthenticated()')}"-->
+            <li class="nav-item active">
+                <!--
+                <a class="nav-link" href="/login" th:href="@{/login}">
+                    Sign in
+                </a>
+                -->                
+             <form th:action="@{/logout}" method="post">
+            		<input type="submit" value="Sign Out"/>
+       		 </form>
+            </li>
+            <!--li th:if="${#authorization.expression('isAuthenticated()')}">
+            <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout
+            </a>
+            <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
+            </li-->
+        </ul>
+        </div>
+    </div>
+</nav>
